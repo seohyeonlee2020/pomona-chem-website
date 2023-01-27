@@ -145,8 +145,13 @@ public class TextCoinStrip {
 	 * a 12-square strip with 5 coins and then plays 
 	 * the Silver Dollar Game. 
 	 */ 
-	public static void main (String[] args) { 
+public static void main (String[] args) { 
 		TextCoinStrip tcs = new TextCoinStrip (12, 5); 
-		tcs.play(); 
+		tcs.play();
+
+	
+		
 	} 
+
+	
 }
