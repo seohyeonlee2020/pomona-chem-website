@@ -12,6 +12,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class TextCoinStrip { 
+	int coins = 0;
 
 	/** 
 	 * the strip of coins. It is an arraylist with locations 
@@ -28,6 +29,7 @@ public class TextCoinStrip {
 	 * pre: 0 < coins < squares 
 	 */ 
 	public TextCoinStrip (int squares, int coins) { 
+		this.coins = coins;
 		if (0 > coins || coins >= squares) { // Check precondition
 			System.out.println("Game must be played with number of\n"+
 						"coins less than number of squares");
@@ -100,10 +102,11 @@ public class TextCoinStrip {
 	 */ 
 
 	public void makeMove(int start, int distance) { 
-		theStrip.set(start, false);
+		
 		if (isLegalMove(start, distance)){
-			theStrip.set(start-distance, element: true);
-	}
+			theStrip.set(start-distance, true);
+		}
+		theStrip.set(start, false);
 	} 
 
 	/** 
@@ -112,7 +115,22 @@ public class TextCoinStrip {
 	 * @return true if there are no more moves 
 	 */ 
 	public boolean gameIsOver() { 
-		return false;	// TODO: replace this with real code
+		//if anything until idx coins-1 is false then return false
+		for(int i=0; i<coins; i++){
+			if (!theStrip.get(i)) {
+				return false;
+			}
+		}
+
+		//if anything beyond index coins-1 is true then return false
+		for(int j=coins; j<coins; j++){
+			if (theStrip.get(j)){
+				return false;
+			}
+		}
+
+		//else game is over (everything until coins-1 is true, the rest false) return true
+		return true;	
 	} 
 
 	/** 
