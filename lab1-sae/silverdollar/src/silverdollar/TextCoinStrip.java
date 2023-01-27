@@ -86,7 +86,7 @@ public class TextCoinStrip {
 	public boolean isLegalMove(int start, int distance) {
 		//no coins jumping over each other
 		int destination = start-distance;
-		if (destination <0) {
+		if (destination <0 || start > theStrip.size()-1 || start < 0) {
 			return false;
 		} else {
 			return !theStrip.get(destination);
