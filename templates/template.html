@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CSV Data Pages</title>
+    <title>Featured Chemists</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     {% for row in data %}
     <div class="data-entry">
-        <h2>{{ row['Title'] }}</h2>
-        <p>{{ row['Description'] }}</p>
+        <h1>{{ row['givenname'] }}</h1>
+        <p>{{ row['description'] }}</p>
     </div>
     {% endfor %}
 </body>
