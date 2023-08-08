@@ -6,6 +6,8 @@
 </head>
 <body>
     <h1>Welcome to Your App</h1>
-    <p>Click <a href="{{ url_for('data') }}">here</a> to view the data.</p>
+    <button class="link-button">
+        <a href="{{ url_for('row_detail', row_id=0) }}">View First Row</a>
+    </button>
 </body>
 </html>
