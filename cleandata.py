@@ -1,21 +1,27 @@
 import pandas as pd
+import numpy as np
 
 #data cleaning functions
 #names I can't process with functions
 
-
-
+file_path = 'data/robbins_speakers.csv'
+data = pd.read_csv(file_path)
 #combine title, firstname, lastname to generate page title
+#make a list of page title and append to df as series later
+
 #.apply to df, axis = 1 (apply to each row)
 def generateName(row):
     if row['given_first']: 
-        row['fullname'] = row['title'] + " " + row['givenname'] + " " + row['surname']
+        pageTitle = row['title'] + " " + row['givenname'] + " " + row['surname']
     else: 
-        row['fullname'] = row['title'] + " " + row['surname'] + " " + row['givenname']
+        pageTitle = row['title'] + " " + row['surname'] + " " + row['givenname']
+    pageTitles.append(pageTitle)
+
+
 
 #combine firstname, lastname in first_last or last_first format to match scientist name with image filename
-def findImage(row):
-    template = "{}_{}.png"
+def generateLinkName(row):
+    template = "{}_{}"
     #make everything lowercase
     given = row['givenname'].lower()
     given = given.split(" ")
@@ -26,10 +32,33 @@ def findImage(row):
         # FirstName M. LastName
         givenName = given[0]
     sur = row['surname'].lower()
-    sur = sur.split([" -"]) #split by space or dash
-    surName = "".join(sur)
     if row['given_first']: 
-        row['imagefile'] = template.format(given, sur)
+        linkName = template.format(givenName, sur)
     else: 
-        row['imagefile'] = template.format(sur, given)
+        linkName = template.format(sur, givenName)
+    linkNames.append(linkName)
 
+def generateImageSrc(row):
+    template = "/images/{}.png"
+    row['link_']
+
+
+
+#how to I pack these three lines into a function
+pageTitles = []
+data.apply(generateName, axis=1)
+data['page_title'] = np.array(pageTitles)
+
+linkNames = []
+data.apply(generateLinkName, axis=1)
+data['link_name'] = np.array(linkNames)
+
+template = "/images/{}.png"
+imageSrc = list(map(lambda x: template.format(x), linkNames))
+#print(imageSrc)
+
+data['image_src'] = np.array(imageSrc)
+
+
+#print(data['page_title'])
+#print(data['link_name'])
