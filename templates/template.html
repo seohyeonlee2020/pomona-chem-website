@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Featured Chemists</title>
+    <title>"{{page_title}}"</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    {% for row in data %}
-    <div class="data-entry">
-        <h1>{{ row['givenname'] }}</h1>
-        <p>{{ row['description'] }}</p>
-    </div>
-    {% endfor %}
+    <h1>"{{page_title}}"</h1>
+    <img src = "/images/{{image_filename}}" alt = ""></img>
+    <p>"{{description}}"</p>
 </body>
 </html>
