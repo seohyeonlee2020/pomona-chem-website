@@ -4,10 +4,11 @@
     <title>Featured Chemists</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
+<body class = "display">
+    <p>test</p>
     {% for row in data %}
     <div class="data-entry">
-        <a href = "">{{ row['page_title'] }}</a>
+        <p><a href="">another test</a></p>
     </div>
     {% endfor %}
 </body>

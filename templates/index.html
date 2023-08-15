@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Your App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class = "display">
+    <h1>Welcome to the Pomona College Chemistry Department!</h1>
+    <p>This site features accomplished chemists, including <a href = "https://www.pomona.edu/academics/departments/chemistry/robbins-lecture-series" target="_blank">Robbins Lecture</a> speakers.</p>
+    <button class="link-button">
+        <a href="{{ url_for('directory'), data = data }}">Learn about featured chemists</a>
+    </button>
+</body>
+</html>

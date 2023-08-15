@@ -53,11 +53,15 @@ linkNames = []
 data.apply(generateLinkName, axis=1)
 data['link_name'] = np.array(linkNames)
 
-template = "/images/{}.png"
-imageSrc = list(map(lambda x: template.format(x), linkNames))
+imageLinkTemplate = "/images/{}.png"
+imageSrc = list(map(lambda x: imageLinkTemplate.format(x), linkNames))
 #print(imageSrc)
 
+hrefTemplate = "/{}"
+href = list(map(lambda x: hrefTemplate.format(x), linkNames))
+
 data['image_src'] = np.array(imageSrc)
+data['href'] = np.array(href)
 
 
 #print(data['page_title'])
