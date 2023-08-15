@@ -5,10 +5,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body class = "display">
-    <p>test</p>
+    <h1>Robbins Speakers</h1>
     {% for row in data %}
     <div class="data-entry">
-        <p><a href="">another test</a></p>
+        <li><a href="{{ url_for('generate_template', link_name = row['link_name']) }}">{{ row.page_title }}</a></li>
     </div>
     {% endfor %}
 </body>

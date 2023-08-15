@@ -1,3 +1,17 @@
 .display{
     background-color: #2d5296;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+.link-button {
+    background-color: orange;
+    font-weight: bold;
+}
+
+.link-button a{
+    text-decoration: none;
 }

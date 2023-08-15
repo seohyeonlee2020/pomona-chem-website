@@ -66,3 +66,18 @@ data['href'] = np.array(href)
 
 #print(data['page_title'])
 #print(data['link_name'])
+
+#set index to link_name
+print("melvin_calvin" in set(data.link_name))
+
+#print(data['melvin_calvin'])
+
+##melvin_calvin = data.loc['melvin_calvin']
+#mel_dict = melvin_calvin.to_dict()
+
+#print(mel_dict['image_src'])
+#print(melvin_calvin.image_src)
+
+#print(data.columns)
+
+
