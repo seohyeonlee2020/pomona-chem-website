@@ -39,7 +39,7 @@ def generateLinkName(row):
     linkNames.append(linkName)
 
 def generateImageSrc(row):
-    template = "/images/{}.png"
+    template = "images/{}.png"
     row['link_']
 
 
@@ -53,7 +53,7 @@ linkNames = []
 data.apply(generateLinkName, axis=1)
 data['link_name'] = np.array(linkNames)
 
-imageLinkTemplate = "/images/{}.png"
+imageLinkTemplate = "images/{}.png"
 imageSrc = list(map(lambda x: imageLinkTemplate.format(x), linkNames))
 #print(imageSrc)
 
@@ -68,7 +68,7 @@ data['href'] = np.array(href)
 #print(data['link_name'])
 
 #set index to link_name
-print("melvin_calvin" in set(data.link_name))
+#print("melvin_calvin" in set(data.link_name))
 
 #print(data['melvin_calvin'])
 
@@ -79,5 +79,7 @@ print("melvin_calvin" in set(data.link_name))
 #print(melvin_calvin.image_src)
 
 #print(data.columns)
+#print(data.image_src)
+
 
 

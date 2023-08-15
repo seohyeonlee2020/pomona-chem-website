@@ -1,4 +1,4 @@
-import csv
+
 from flask import Flask, render_template
 import pandas as pd
 import cleandata
@@ -23,12 +23,15 @@ def directory():
 @app.route('/<string:link_name>')
 def generate_template(link_name):
     if link_name in set(data.link_name):
-        template_data = df.loc[df.link_name==link_name].to_dict()
-       # print(template_data['page_title'])
+        template_data = df.loc[df.link_name==link_name].to_dict('records')[0]
+        print(template_data)
 
-        return render_template('template.html', **template_data)
+        return render_template('template.html', data = template_data)
     else:
         return "Template not found"
 
-if __name__ == '__main__':
+if __name__ == '__main__':#
     app.run(debug=True)
+
+
+
